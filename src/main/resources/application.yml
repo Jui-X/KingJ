@@ -1,12 +1,19 @@
-# ¹Ø±Õ»º´æ, ¼´Ê±Ë¢ĞÂ
+# å…³é—­ç¼“å­˜, å³æ—¶åˆ·æ–°
 #  spring:
 #    thymeleaf:
 #      cache: false
 
-# ÈÈ²¿ÊğÉúĞ§spring:
-# ÉèÖÃÖØÆôµÄÄ¿Â¼,Ìí¼ÓÄÇ¸öÄ¿Â¼µÄÎÄ¼şĞèÒªrestart
-# ÎªmybatisÉèÖÃ£¬Éú²ú»·¾³¿ÉÉ¾³ı
-# ÅÅ³ıÄÇ¸öÄ¿Â¼µÄÎÄ¼ş²»ĞèÒªrestart
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/kingj?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+# çƒ­éƒ¨ç½²ç”Ÿæ•ˆspring:
+# è®¾ç½®é‡å¯çš„ç›®å½•,æ·»åŠ é‚£ä¸ªç›®å½•çš„æ–‡ä»¶éœ€è¦restart
+# ä¸ºmybatisè®¾ç½®ï¼Œç”Ÿäº§ç¯å¢ƒå¯åˆ é™¤
+# æ’é™¤é‚£ä¸ªç›®å½•çš„æ–‡ä»¶ä¸éœ€è¦restart
   devtools:
     restart:
       enabled: true
@@ -16,19 +23,29 @@
 #        pagehelper: /pagehelper-[\\w-\\.]+jar
 #     exclude: static/**, public/**, WEB-INF/**
 
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/kingj?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
-    username: root
-    password: 123456
+# Redisé…ç½®
+# Redisæ•°æ®åº“ç´¢å¼•ï¼ˆé»˜è®¤ä¸º0ï¼‰
+# RedisæœåŠ¡å™¨åœ°å€:
+# RedisæœåŠ¡å™¨è¿æ¥ç«¯å£
+# RedisæœåŠ¡å™¨è¿æ¥å¯†ç ï¼ˆé»˜è®¤ä¸ºç©ºï¼‰
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password:
+#    timeout: 0
 
-# Mybatis·ÖÒ³²å¼şÅäÖÃ
-  pagehelper:
-    dialect: mysql
-    resonable: true
-    supportMethodsArguments: true
-    params: count=countSql
+# Mybatisåˆ†é¡µæ’ä»¶é…ç½®
+#pagehelper:
+#  dialect: mysql
+#  resonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+
+
+
+
+
 
 
 

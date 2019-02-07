@@ -4,6 +4,7 @@ import com.tyrantx.kingj.Mapper.UserMapper;
 import com.tyrantx.kingj.Pojo.User;
 import com.tyrantx.kingj.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @author: KingJ
  * @create: 2019-02-06 22:31
  **/
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

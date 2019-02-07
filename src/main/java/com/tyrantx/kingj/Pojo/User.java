@@ -2,7 +2,6 @@ package com.tyrantx.kingj.Pojo;
 
 import lombok.Data;
 
-import javax.persistence.*;
 
 /**
  * @param: none
