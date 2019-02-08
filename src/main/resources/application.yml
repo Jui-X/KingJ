@@ -10,6 +10,13 @@ spring:
     username: root
     password: 123456
 
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      stat-view-servlet.allow: true
+
 # 热部署生效spring:
 # 设置重启的目录,添加那个目录的文件需要restart
 # 为mybatis设置，生产环境可删除
