@@ -18,6 +18,6 @@ public class WebConfigure implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
 
         // "/*/**"代表对所有url请求进行拦截
-        registry.addInterceptor(new XInterceptor()).addPathPatterns("/*/**");
+        registry.addInterceptor(new XInterceptor()).addPathPatterns("/test/**");
     }
 }

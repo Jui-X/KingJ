@@ -1,5 +1,7 @@
 package com.tyrantx.kingj.Pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 
@@ -10,15 +12,19 @@ import lombok.Data;
  * @create: 2019-02-06 21:44
  **/
 @Data
+@ApiModel(value = "用户对象", description = "这是用户对象")
 public class User {
 
+    @ApiModelProperty(hidden = true)
     /** uid */
     private Integer id;
 
     /** 用户名 */
+    @ApiModelProperty(value = "用户名", name = "username", example = "kingj", required = true)
     private String name;
 
     /** 用户密码 */
+    @ApiModelProperty(value = "密码", name = "password", example = "123456", required = true)
     private String password;
 
 }
