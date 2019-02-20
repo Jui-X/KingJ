@@ -7,7 +7,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @param: none
- * @description:
+ * @description: 拦截器适配器
+ *              负责拦截器的配置
  * @author: KingJ
  * @create: 2019-02-08 16:56
  **/
