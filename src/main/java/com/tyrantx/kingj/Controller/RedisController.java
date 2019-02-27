@@ -1,7 +1,7 @@
 package com.tyrantx.kingj.Controller;
 
 import com.tyrantx.kingj.Pojo.User;
-import com.tyrantx.kingj.Utils.JSONResult;
+import com.tyrantx.kingj.Utils.JsonResult;
 import com.tyrantx.kingj.Utils.JsonUtils;
 import com.tyrantx.kingj.Utils.RedisOperator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class RedisController {
     private RedisOperator redis;
 
     @RequestMapping("/test")
-    public JSONResult test() {
+    public JsonResult test() {
         stringRedis.opsForValue().set("test", "test");
 
         User user = new User();
@@ -41,12 +41,12 @@ public class RedisController {
 
         User jsonUser = JsonUtils.jsonToPojo(stringRedis.opsForValue().get("json:user"), User.class);
 
-//        return JSONResult.ok(stringRedis.opsForValue().get("test"));
-        return JSONResult.ok(jsonUser);
+//        return JsonResult.ok(stringRedis.opsForValue().get("test"));
+        return JsonResult.ok(jsonUser);
     }
 
     @RequestMapping("/jsonList")
-    public JSONResult getJsonList() {
+    public JsonResult getJsonList() {
 
         User usera = new User();
         usera.setId(1002);
@@ -67,7 +67,9 @@ public class RedisController {
         String usrListJson = redis.get("json:info:userList");
         List<User> usrList = JsonUtils.jsonToList(usrListJson, User.class);
 
-        return JSONResult.ok(usrList);
+        return JsonResult.ok(usrList);
     }
+
+
 
 }

@@ -1,6 +1,8 @@
 package com.tyrantx.kingj.Mapper;
 
 import com.tyrantx.kingj.Pojo.User;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -16,6 +18,12 @@ public interface UserMapper {
 
     @Select("SELECT name from user")
     List<User> queryAllUsers();
+
+    @Select("SELECT id FROM user WHERE name = #{username}")
+    User queryUserByName(@Param("username")String username);
+
+    @Insert("INSERT INTO user(name, password) VALUES(#{name}, #{password})")
+    void createUser(@Param("username")String username, @Param("password")String password);
 }
 
 

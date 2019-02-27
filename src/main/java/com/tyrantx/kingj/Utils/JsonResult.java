@@ -17,7 +17,7 @@ import lombok.Data;
  * @create: 2019-02-06 21:18
  **/
 @Data
-public class JSONResult {
+public class JsonResult {
 
     // 返回相应状态码
     private Integer status;
@@ -31,42 +31,42 @@ public class JSONResult {
     // 不使用
     private String ok;
 
-    public static JSONResult build(Integer status, String msg, Object data) {
-        return new JSONResult(status, msg, data);
+    public static JsonResult build(Integer status, String msg, Object data) {
+        return new JsonResult(status, msg, data);
     }
 
-    public static JSONResult ok(Object data) {
-        return new JSONResult(data);
+    public static JsonResult ok(Object data) {
+        return new JsonResult(data);
     }
 
-    public static JSONResult ok() {
-        return new JSONResult(null);
+    public static JsonResult ok() {
+        return new JsonResult(null);
     }
 
-    public static JSONResult errorMsg(String msg) {
-        return new JSONResult(500, msg, null);
+    public static JsonResult errorMsg(String msg) {
+        return new JsonResult(500, msg, null);
     }
 
-    public static JSONResult errorMap(Object data) {
-        return new JSONResult(501, "error", data);
+    public static JsonResult errorMap(Object data) {
+        return new JsonResult(501, "error", data);
     }
 
-    public static JSONResult errorTokenMsg(String msg) {
-        return new JSONResult(502, msg, null);
+    public static JsonResult errorTokenMsg(String msg) {
+        return new JsonResult(502, msg, null);
     }
 
-    public static JSONResult errorException(String msg) {
-        return new JSONResult(555, msg, null);
+    public static JsonResult errorException(String msg) {
+        return new JsonResult(555, msg, null);
     }
 
 
-    private JSONResult(Integer status, String msg, Object data) {
+    private JsonResult(Integer status, String msg, Object data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-    private JSONResult(Object data) {
+    private JsonResult(Object data) {
         this.status = 200;
         this.msg = "ok";
         this.data = data;

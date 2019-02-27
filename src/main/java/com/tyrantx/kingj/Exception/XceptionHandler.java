@@ -1,6 +1,6 @@
 package com.tyrantx.kingj.Exception;
 
-import com.tyrantx.kingj.Utils.JSONResult;
+import com.tyrantx.kingj.Utils.JsonResult;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,7 +23,7 @@ public class XceptionHandler {
         e.printStackTrace();
 
         if(isAjax(request)) {
-            return JSONResult.errorException(e.getMessage());
+            return JsonResult.errorException(e.getMessage());
         } else {
             ModelMap m = new ModelMap();
             m.addAttribute("exception", e);

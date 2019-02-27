@@ -1,6 +1,6 @@
 package com.tyrantx.kingj.Controller.Interceptor;
 
-import com.tyrantx.kingj.Utils.JSONResult;
+import com.tyrantx.kingj.Utils.JsonResult;
 import com.tyrantx.kingj.Utils.JsonUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +25,7 @@ public class XInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         if (true) {
-            returnErrorReponse(response, JSONResult.errorMsg("被拦截..."));
+            returnErrorReponse(response, JsonResult.errorMsg("被拦截..."));
         }
 
         return false;
@@ -47,7 +47,7 @@ public class XInterceptor implements HandlerInterceptor {
 
     }
 
-    public void returnErrorReponse(HttpServletResponse response, JSONResult result) throws IOException {
+    public void returnErrorReponse(HttpServletResponse response, JsonResult result) throws IOException {
 
         OutputStream out = null;
 

@@ -1,6 +1,7 @@
 package com.tyrantx.kingj.Utils;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.util.DigestUtils;
 
 import java.security.MessageDigest;
 
@@ -10,7 +11,7 @@ import java.security.MessageDigest;
  * @author: KingJ
  * @create: 2019-02-08 23:31
  **/
-public class MD5Utils {
+public class MD5Utils implements TokenGenerator{
 
     public static String getMD5Str(String strValue) throws Exception {
 
@@ -19,7 +20,15 @@ public class MD5Utils {
         return newStr;
     }
 
-    public static void main(String[] args) {
-
+    @Override
+    public String tokenGenerate(String... strings) {
+        long timestamp = System.currentTimeMillis();
+        String tokenMeta = "";
+        for (String s: strings) {
+            tokenMeta += s;
+        }
+        tokenMeta = tokenMeta + timestamp;
+        String token = DigestUtils.md5DigestAsHex(tokenMeta.getBytes());
+        return token;
     }
 }
