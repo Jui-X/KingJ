@@ -1,9 +1,8 @@
 package com.tyrantx.kingj.Service.ServiceImpl;
 
-import com.tyrantx.kingj.Mapper.UserMapper;
-import com.tyrantx.kingj.Pojo.User;
+import com.tyrantx.kingj.DAO.UserMapper;
+import com.tyrantx.kingj.DO.User;
 import com.tyrantx.kingj.Service.UserService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;

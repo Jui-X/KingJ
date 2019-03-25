@@ -1,9 +1,11 @@
 package com.tyrantx.kingj.Controller;
 
 import com.tyrantx.kingj.Constant.RedisConstant;
-import com.tyrantx.kingj.Pojo.User;
+import com.tyrantx.kingj.DO.User;
 import com.tyrantx.kingj.Service.UserService;
+import com.tyrantx.kingj.Utils.JsonResult;
 import com.tyrantx.kingj.Utils.MD5Utils;
+import com.tyrantx.kingj.VO.UserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,9 +45,9 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public void createUser(@RequestBody(required = true)JSONObject userInfo) {
-        String username = userInfo.getString("username");
-        String password = userInfo.getString("password");
+    public JsonResult createUser(@RequestParam("username")String username, @RequestParam("password")String password) {
+//        String username = userInfo.getString("username");
+//        String password = userInfo.getString("password");
 
         User currentUser = userService.queryUserByName(username);
         if(currentUser == null) {
@@ -54,5 +58,25 @@ public class UserController {
             redisTemplate.opsForValue().set(String.format(username, token), currentTime.toString());
         }
 
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
+
+        return JsonResult.ok(map);
+    }
+
+    @ApiOperation(value = "用户登录", notes = "核对用户账号密码")
+    @PostMapping("/signIn")
+    public JsonResult SignIn(@RequestBody(required = true)JSONObject userInfo) {
+        String username = userInfo.getString("username");
+        String password = userInfo.getString("password");
+
+        User currentUser = userService.queryUserByName(username);
+        if(!currentUser.getPassword().equals(password)) {
+            return JsonResult.errorMsg("用户名或密码出错，请检查...");
+        } else {
+            UserVO userVO = new UserVO();
+            userVO.setName(username);
+            return JsonResult.ok(userVO);
+        }
     }
 }

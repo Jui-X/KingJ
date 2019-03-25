@@ -1,6 +1,7 @@
 package com.tyrantx.kingj.Utils;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 
 import java.security.MessageDigest;
@@ -11,6 +12,7 @@ import java.security.MessageDigest;
  * @author: KingJ
  * @create: 2019-02-08 23:31
  **/
+@Component
 public class MD5Utils implements TokenGenerator{
 
     public static String getMD5Str(String strValue) throws Exception {

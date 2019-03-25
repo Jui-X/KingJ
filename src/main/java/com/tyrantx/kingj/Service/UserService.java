@@ -1,7 +1,7 @@
 package com.tyrantx.kingj.Service;
 
 
-import com.tyrantx.kingj.Pojo.User;
+import com.tyrantx.kingj.DO.User;
 
 import java.util.List;
 

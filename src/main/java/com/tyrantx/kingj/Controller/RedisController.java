@@ -1,6 +1,6 @@
 package com.tyrantx.kingj.Controller;
 
-import com.tyrantx.kingj.Pojo.User;
+import com.tyrantx.kingj.DO.User;
 import com.tyrantx.kingj.Utils.JsonResult;
 import com.tyrantx.kingj.Utils.JsonUtils;
 import com.tyrantx.kingj.Utils.RedisOperator;
