@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.tyrantx.kingj.Constant.RedisConstant;
 import com.tyrantx.kingj.DO.WXSession;
 import com.tyrantx.kingj.Utils.HttpClient;
-import com.tyrantx.kingj.Utils.JsonResult;
+import com.tyrantx.kingj.Common.JsonResult;
 import com.tyrantx.kingj.Utils.JsonUtils;
 import com.tyrantx.kingj.Utils.RedisOperator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * @param: none
- * @description:
+ * @description: 获取小程序后端的open_id和session_key作为key-value存入Redis
  * @author: KingJ
  * @create: 2019-03-25 20:27
  **/

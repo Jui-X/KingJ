@@ -1,6 +1,6 @@
 package com.tyrantx.kingj.Config;
 
-import com.tyrantx.kingj.Controller.Interceptor.XInterceptor;
+import com.tyrantx.kingj.Common.XInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @create: 2019-02-08 16:56
  **/
 @Configuration
-public class WebConfigure implements WebMvcConfigurer {
+public class InterceptorWebConfigure implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

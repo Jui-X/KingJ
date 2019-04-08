@@ -1,4 +1,4 @@
-package com.tyrantx.kingj.Utils;
+package com.tyrantx.kingj.Common;
 
 import lombok.Data;
 

@@ -3,7 +3,7 @@ package com.tyrantx.kingj.Controller;
 import com.tyrantx.kingj.Constant.RedisConstant;
 import com.tyrantx.kingj.DO.User;
 import com.tyrantx.kingj.Service.UserService;
-import com.tyrantx.kingj.Utils.JsonResult;
+import com.tyrantx.kingj.Common.JsonResult;
 import com.tyrantx.kingj.Utils.MD5Utils;
 import com.tyrantx.kingj.VO.UserVO;
 import io.swagger.annotations.Api;
@@ -79,4 +79,6 @@ public class UserController {
             return JsonResult.ok(userVO);
         }
     }
+
+    Thread thread = new Thread();
 }

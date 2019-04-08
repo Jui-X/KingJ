@@ -1,6 +1,6 @@
-package com.tyrantx.kingj.Controller.Interceptor;
+package com.tyrantx.kingj.Common;
 
-import com.tyrantx.kingj.Utils.JsonResult;
+import com.tyrantx.kingj.Common.JsonResult;
 import com.tyrantx.kingj.Utils.JsonUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

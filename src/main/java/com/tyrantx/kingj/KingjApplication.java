@@ -1,14 +1,17 @@
 package com.tyrantx.kingj;
 
+import com.tyrantx.kingj.Common.XFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.unit.DataSize;
 
+import javax.servlet.FilterRegistration;
 import javax.servlet.MultipartConfigElement;
 
 // @MapperScan注解自动扫描Mapper包，无需在每个Mapper类上加@Mapper注解
@@ -30,5 +33,13 @@ public class KingjApplication {
         // 总文件上传大小
         factory.setMaxRequestSize(DataSize.ofGigabytes(1L));
         return factory.createMultipartConfig();
+    }
+
+    @Bean
+    public FilterRegistrationBean httpFilter() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(new XFilter());
+        registrationBean.addUrlPatterns("/threadLocal/*");
+        return registrationBean;
     }
 }

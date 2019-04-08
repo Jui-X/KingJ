@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * @param: none
- * @description:
+ * @description: httpclient-服务器后端发送请求时的工具类
  * @author: KingJ
  * @create: 2019-03-25 20:28
  **/

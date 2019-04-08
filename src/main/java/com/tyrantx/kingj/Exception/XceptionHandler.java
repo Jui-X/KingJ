@@ -1,6 +1,6 @@
 package com.tyrantx.kingj.Exception;
 
-import com.tyrantx.kingj.Utils.JsonResult;
+import com.tyrantx.kingj.Common.JsonResult;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
